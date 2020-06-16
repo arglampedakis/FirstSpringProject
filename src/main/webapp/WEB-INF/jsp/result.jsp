@@ -1,6 +1,6 @@
 <%-- 
-    Document   : hi1
-    Created on : Jun 12, 2020, 9:31:10 PM
+    Document   : result
+    Created on : Jun 15, 2020, 7:56:15 PM
     Author     : glamb
 --%>
 
@@ -9,9 +9,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Hello World!</title>
     </head>
     <body>
-        <h1>Hello World! I'm hi1 jsp. Book id is : ${bookId}</h1>
+        <h1>Username: ${name}</h1>
+        <h1>Password ${password}</h1>
     </body>
 </html>
