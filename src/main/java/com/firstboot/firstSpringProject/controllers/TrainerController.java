@@ -7,12 +7,14 @@ package com.firstboot.firstSpringProject.controllers;
 
 import com.firstboot.firstSpringProject.model.Trainer;
 import com.firstboot.firstSpringProject.services.TrainerServiceInterface;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -37,13 +39,13 @@ public class TrainerController {
     TrainerServiceInterface trainerServiceInterface;
 
     //o controller που θα ΕΜΦΑΝΙΣΕΙ την φορμα
-    @GetMapping("preinserttrainer")
+    @GetMapping("/preinserttrainer")
     public String showTrainerForm(ModelMap mm) {
-        
+
         mm.addAttribute("newtrainer", new Trainer());
         return "trainerform";
     }
-    
+
     @PostMapping("/doinserttrainer")
     public String insertTrainer(ModelMap mm,
             @ModelAttribute("newtrainer") Trainer t) {
@@ -52,7 +54,19 @@ public class TrainerController {
 
         trainerServiceInterface.insertTrainer(t);
         mm.addAttribute("trainer", t);
-        
+
         return "result";
+    }
+
+    @PostMapping("/searchTrainer")
+    public String searchForTrainers(ModelMap mm,
+            @RequestParam(name = "name") String trainerName,
+            @RequestParam(name = "age") int age) {
+
+        List<Trainer> result
+                = trainerServiceInterface.getTrainersBySearchCriteria(trainerName, age);
+
+        mm.addAttribute("resultTrainers", result);
+        return "searchResults";
     }
 }

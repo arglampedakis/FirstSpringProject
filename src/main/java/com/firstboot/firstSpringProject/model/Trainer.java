@@ -46,7 +46,7 @@ public class Trainer implements Serializable {
     private String surname;
     @Basic(optional = false)
     @Column(name = "AGE")
-    private int age;
+    private Integer age;
 
     public Trainer() {
     }
@@ -55,7 +55,7 @@ public class Trainer implements Serializable {
         this.trId = trId;
     }
 
-    public Trainer(Integer trId, String trName, String surname, int age) {
+    public Trainer(Integer trId, String trName, String surname, Integer age) {
         this.trId = trId;
         this.trName = trName;
         this.surname = surname;
@@ -86,11 +86,11 @@ public class Trainer implements Serializable {
         this.surname = surname;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 

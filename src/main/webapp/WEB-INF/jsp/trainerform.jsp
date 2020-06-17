@@ -18,7 +18,7 @@
     <springform:form action="doinserttrainer" method="post" modelAttribute="newtrainer"> 
         <!-- newtrainer < me ti onoma evala t attribute tn adeio trainer-->
 
-        <springform:input path="name"/>
+        <springform:input path="trName"/>
         <springform:input path="surname"/>
         <!-- type="text" einai to default t spring-->
         <springform:input type="number" path="age"/>

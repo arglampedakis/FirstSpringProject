@@ -6,6 +6,7 @@
 package com.firstboot.firstSpringProject.repos;
 
 import com.firstboot.firstSpringProject.model.Trainer;
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -15,6 +16,14 @@ import org.springframework.stereotype.Repository;
  */
 //ena tetoio repo gia kathe Entity
 @Repository
-public interface TrainerRepository extends JpaRepository<Trainer, Integer>{
+public interface TrainerRepository extends JpaRepository<Trainer, Integer> {
+
+    // de xreiazetai implementation an einai grammenh swsta ayth h methodos,
+    //exei t spring data tropo na t ftiaksei mn t. Thelei sygkekrimeno onoma
+    //Query methods
+//    List<Trainer> findTop3Age();
+//    List<Trainer> findByAge(int age);
+    
+    List<Trainer> findByTrNameStartingWithAndAgeGreaterThan(String startsWith, int age);
     
 }

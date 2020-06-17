@@ -12,16 +12,26 @@ and open the template in the editor.
     </head>
     <body>
         <div>Welcome !</div>
-        <form action="login" method="post">
+        <!--        <form action="login" method="post">
+                    <br>
+                    Username: <input type="text" name="name"/>
+                    <br>
+                    <br>
+                    Password: <input type="password" name="password"/>
+                    <br>
+                    <input type="submit" value="submit"/>
+                    <br>
+                </form>-->
+        <h1>Search for Trainers</h1>
+        <form action="searchTrainer" method="post">
             <br>
-            Username: <input type="text" name="name"/>
+            Give first letter of Trainer's name: <input type="text" name="name"/>
             <br>
             <br>
-            Password: <input type="password" name="password"/>
+            Give Age of Trainer: <input type="number" name="age"/>
             <br>
-            <input type="submit" value="submit"/>
+            <input type="submit" value="Search"/>
             <br>
-            
         </form>
     </body>
 </html>
