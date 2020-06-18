@@ -7,7 +7,6 @@ package com.firstboot.firstSpringProject.services;
 
 import com.firstboot.firstSpringProject.model.Trainer;
 import com.firstboot.firstSpringProject.repos.TrainerRepository;
-import java.util.ArrayList;
 import java.util.List;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +33,8 @@ public class TrainerServiceImpl implements TrainerServiceInterface {
     @Override
     public List<Trainer> getTrainersBySearchCriteria(String name, int age) {
 
-        return trainerRepository.findByTrNameStartingWithAndAgeGreaterThan(name, age);
+        //return trainerRepository.findByTrNameStartingWithAndAgeGreaterThan(name, age);
+        return trainerRepository.getByJPQL(name, age); // same as above
     }
 
 }
