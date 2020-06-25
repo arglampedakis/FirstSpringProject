@@ -6,15 +6,19 @@
 package com.firstboot.firstSpringProject.controllers;
 
 import com.firstboot.firstSpringProject.model.Trainer;
+import com.firstboot.firstSpringProject.repos.TrainerRepository;
 import com.firstboot.firstSpringProject.services.TrainerServiceInterface;
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  *
@@ -46,6 +50,11 @@ public class TrainerController {
         return "trainerform";
     }
 
+    @GetMapping("searchresttrainer")
+    public String searchTrainer() {
+        return "resttrainer";
+    }
+
     @PostMapping("/doinserttrainer")
     public String insertTrainer(ModelMap mm,
             @ModelAttribute("newtrainer") Trainer t) {
@@ -68,5 +77,12 @@ public class TrainerController {
 
         mm.addAttribute("resultTrainers", result);
         return "searchResults";
+    }
+
+    @ResponseBody
+    @GetMapping("searchTrainerByName/{trname}")
+    public List<Trainer> searchByName(@PathVariable String trname) {
+        List<Trainer> result = trainerServiceInterface.getTrainerByNameLike(trname);
+        return result;
     }
 }

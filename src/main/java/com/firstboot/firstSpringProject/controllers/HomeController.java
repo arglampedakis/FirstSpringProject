@@ -42,5 +42,6 @@ public class HomeController {
         mm.addAttribute("bookId", type);
         return "hi1";
     }
+    
 
 }

@@ -26,7 +26,9 @@ public interface TrainerRepository extends JpaRepository<Trainer, Integer> {
 //    List<Trainer> findTop3Age();
 //    List<Trainer> findByAge(int age);
     
-    List<Trainer> findByTrNameStartingWithAndAgeGreaterThan(String startsWith, int age);
+    List<Trainer> findByTrNameStartingWithAndAgeGreaterThan(String trName, int age);
+    
+    List<Trainer> findByTrNameStartingWith(String trName);
     
     @Query("SELECT t FROM Trainer t WHERE t.trName LIKE :name% AND t.age > :age")
     List<Trainer> getByJPQL(@Param("name") String name,@Param("age") Integer age);
